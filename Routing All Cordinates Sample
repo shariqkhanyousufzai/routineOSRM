@@ -1,0 +1,24 @@
+  holdValuesLat.push(result[i].lat);
+holdValuesLon.push(result[i].lon);
+if (countMark == 1) {
+var  markerLivesA = new L.LatLng(result[0].lat, result[0].lon);
+}
+var routing = L.Routing.control({
+  waypoints: [
+  L.latLng(markerLivesA),
+  L.latLng(result[i].lat, result[i].lon)
+  ] 
+}).addTo(map);
+var markerLives = L.marker([result[i].lat, result[i].lon],{icon: redIcon}).addTo(map);
+
+    routing.on('routeselected', function(e) {
+      var route = e.route;
+      // Do something with the route here
+      console.log(route.coordinates);
+      console.log(route.coordinates.length);
+      console.log(route.coordinates[0].lat);
+      for(var k = 0; k< route.coordinates.length ; k++){
+        holdValuesLat[k] = route.coordinates[k].lat;
+        holdValuesLon[k] = route.coordinates[k].lng;
+      }
+  });
