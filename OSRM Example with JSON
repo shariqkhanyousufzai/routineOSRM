@@ -32,6 +32,11 @@ var map = L.map('map');
   }).addTo(map);
 
 var routeControl = L.Routing.control({
+fitSelectedRoutes : false,
+routeWhileDragging: false,
+addWaypoints: false,
+draggableWaypoints: false,
+show: false,
 
 }).addTo(map);
 routeControl.setWaypoints(data);
