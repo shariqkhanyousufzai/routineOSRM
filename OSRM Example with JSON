@@ -1,0 +1,37 @@
+  var data = [
+
+    {
+        "title": 'Chennai',
+        "lat": '13.0827',
+        "lng": '80.2707',
+        "description": '',
+        "flag":'1'
+    }
+  ,
+  {
+    "title": 'Ramapuram',
+    "lat": '13.0317',
+    "lng": '80.1817',
+    "description": ''
+
+  }
+  ,
+    {
+        "title": 'Kanchipuram',
+        "lat": '12.8342',
+        "lng": '79.7036',
+        "description": '',
+        "flag":'1'
+    },
+
+  ];
+var map = L.map('map');
+
+  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+var routeControl = L.Routing.control({
+
+}).addTo(map);
+routeControl.setWaypoints(data);
